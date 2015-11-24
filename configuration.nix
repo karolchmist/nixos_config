@@ -43,7 +43,7 @@
 
     # Desktop
     firefox
-    redshift
+    #redshift
     #xmonad-with-packages
 
     # Dev
@@ -63,6 +63,19 @@
   # Enable the X11 windowing system.
   services = {
 	nixosManual.showManual = true;
+	
+	samba.enable = true;
+	
+	redshift = {
+	  enable = true;
+	  latitude = "45.76";
+	  longitude = "4.84";
+	  brightness = {
+		 day = "0.5";
+		 night = "0.4";
+	  };
+	};
+	
 	xserver = {
 		enable = true;
   		layout = "pl";
