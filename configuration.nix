@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./ssd-configuration.nix
     ];
 
   # Use the gummiboot efi boot loader.
