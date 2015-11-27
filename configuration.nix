@@ -9,15 +9,28 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./ssd-configuration.nix
+      ./xserver-configuration.nix
+      ./lenovo-t440s-configuration.nix
     ];
 
   # Use the gummiboot efi boot loader.
   boot.loader.gummiboot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;
+  networking = {
+	hostName = "nixos"; # Define your hostname.
+  	# wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  	networkmanager.enable = true;
+	firewall = {
+		enable = true;
+		allowedTCPPorts = [
+			137 138 139 # Samba/Netbios
+		];
+		allowedUDPPorts = [
+			137 138 139 # Samba/Netbios
+		];	
+	};
+  };
 
   # Select internationalisation properties.
   i18n = {
@@ -28,7 +41,6 @@
   };
 
   hardware = {
-	trackpoint.fakeButtons = true;
 	pulseaudio.enable = true;
   };
   
@@ -45,12 +57,18 @@
     # Desktop
     firefox
     #redshift
+    libreoffice
+    filezilla
+    vlc
     #xmonad-with-packages
 
     # Dev
     sbt
     idea.idea-community
     gitAndTools.gitFull
+    nodejs
+    docker
+
   ];
 
   # List services that you want to enable:
@@ -76,41 +94,6 @@
 		 night = "0.4";
 	  };
 	};
-	
-	xserver = {
-		enable = true;
-  		layout = "pl";
-
-  		desktopManager = { 
-			kde4.enable = true;
-			#xterm.enable = false;
-			#default = "none";
-		};
-  		
-		# Enable the KDE Desktop Environment.
-  		displayManager = {
-			kdm.enable = true;
-			slim = {
-				#enable = true;
-				#defaultUser = "karol";
-			};
-		};
-		synaptics = {
-			enable = true;
-			horizEdgeScroll = false;
-			twoFingerScroll = true;
-			tapButtons = false;
-		};
-  		# windowManager = {
-		# 	default = "xmonad";
-		#	xmonad = {
-		#		enable = true;
-  		#		enableContribAndExtras = true;
-		#	};
-		# };
-		# services.xserver.xkbModel
-		xkbOptions = "eurosign:e";
-	};
   };
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -123,5 +106,4 @@
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";
-
 }
