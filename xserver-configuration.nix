@@ -4,29 +4,43 @@
 	services.xserver = {
 		enable = true;
 		layout = "pl";
+		xkbOptions = "eurosign:5";
+		
+		### KDE
 		desktopManager = { 
 			kde4.enable = true;
-			#gnome3.enable = true;
-			#xterm.enable = false;
-			#default = "none";
 		};
-		# Enable the KDE Desktop Environment.
 		displayManager = {
 			kdm.enable = true;
-			#slim = {
-			#	enable = true;
-			#	defaultUser = "karol";
-			#};
 		};
-		#windowManager = {
-			# default = "xmonad";
-			# xmonad = {
-			# enable = true;
-			# enableContribAndExtras = true;
-			# extraPackages = self: [ self.xmonadContrib ];
-			# };
-		#};
-		xkbModel = "pc105";
-		xkbOptions = "eurosign:e";
+		
+		/*		
+		### Gnome
+		desktopManager = { 
+			gnome3.enable = true;
+		};
+		displayManager = {
+			gdm.enable = true;
+
+		};
+		*/
+		
+		/*
+		#### XMonad 
+		desktopManager = { 
+			xterm.enable = false;
+			default = "none";
+		};
+
+		windowManager = {
+			default = "xmonad";
+			xmonad = {
+				enable = true;
+				#enableContribAndExtras = true;
+				#extraPackages = self: [ self.xmonadContrib ];
+			};
+		};
+		*/
+		
 	};
 }

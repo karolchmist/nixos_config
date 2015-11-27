@@ -60,15 +60,16 @@
     libreoffice
     filezilla
     vlc
+    xfe
     #xmonad-with-packages
 
     # Dev
+    jdk
     sbt
     idea.idea-community
     gitAndTools.gitFull
     nodejs
     docker
-
   ];
 
   # List services that you want to enable:

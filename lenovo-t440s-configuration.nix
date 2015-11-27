@@ -7,6 +7,8 @@
 	};
 
 	services.xserver = {
+		xkbModel = "pc105";
+
 		synaptics = {
 			enable = true;
 			#horizEdgeScroll = false;
