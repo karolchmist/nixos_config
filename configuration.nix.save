@@ -37,7 +37,7 @@
     # consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "pl";
     # defaultLocale = "pl_PL.UTF-8";
-    supportedLocales = ["en_US.UTF-8/UTF-8"];
+    supportedLocales = ["en_US.UTF-8/UTF-8" "pl_PL.UTF-8/UTF-8" "es_ES.UTF-8/UTF-8"];
   };
 
   hardware = {
@@ -53,30 +53,28 @@
     wget
     htop 
     vim
-    p7zip
-    traceroute
+    lynx
+    parted 
+
+    # Desktop
+    firefox
+    libreoffice
+    filezilla
+    vlc
+    xfe # like total commander
+    mupdf
     
-      # Dev
-      disnixos
-      nix-repl
-      nixops
-      gnumake
-      
-      jdk
-      sbt
-      idea.idea-community
-      
-      gitAndTools.gitFull
-     
-      pgadmin
- 
-      nodejs
-      python # needed by gyp 
-      gcc # needed by gyp 
-      nodePackages.npm2nix
-      nodePackages.bower2nix
-      nodePackages.bower
-      nodePackages.gulp
+    # Dev
+    nix-repl
+    jdk
+    sbt
+    idea.idea-community
+    gitAndTools.gitFull
+    nodejs
+    #npm2nix
+    #nixos.pkgs.nodePackages.bower
+    #nixos.pkgs.nodePackages.gulp 
+    docker
   ];
 
 
@@ -85,13 +83,15 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  # Enable CUPS to print documents.
+  # services.printing.enable = true;
+
   # Enable the X11 windowing system.
   services = {
 	nixosManual.showManual = true;
 	
 	# samba.enable = true;
-	printing.enable = true;
-
+	
 	redshift = {
 	  enable = true;
 	  latitude = "45.76";
@@ -108,7 +108,7 @@
     isNormalUser = true;
     home = "/home/karol";
     extraGroups = ["wheel" "networkmanager"];
-    uid = 1001;
+    uid = 1000;
   };
 
   
@@ -118,9 +118,4 @@
   
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";
-
-  # 15.09
-  #services.virtualboxHost.enable = true;
-  # 16.03
-  virtualisation.virtualbox.host.enable = true;
 }
