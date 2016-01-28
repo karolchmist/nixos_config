@@ -40,6 +40,8 @@
     supportedLocales = ["en_US.UTF-8/UTF-8"];
   };
 
+  fonts.enableGhostscriptFonts = true;
+  
   hardware = {
 	pulseaudio.enable = true;
   };
@@ -69,7 +71,7 @@
       gitAndTools.gitFull
      
       pgadmin
- 
+      
       nodejs
       python # needed by gyp 
       gcc # needed by gyp 
@@ -77,6 +79,7 @@
       nodePackages.bower2nix
       nodePackages.bower
       nodePackages.gulp
+  # nodePackages.brunch
   ];
 
 
@@ -101,6 +104,12 @@
 		 night = "0.4";
 	  };
 	};
+
+
+    mysql = {
+     enable = true;
+     package = pkgs.mysql;
+    };
   };
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
