@@ -79,7 +79,8 @@
       nodePackages.bower2nix
       nodePackages.bower
       nodePackages.gulp
-  # nodePackages.brunch
+      nodePackages.karma
+#      nodePackages.protractor
   ];
 
 
@@ -87,6 +88,8 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  programs.zsh.enable = true;
 
   # Enable the X11 windowing system.
   services = {
@@ -118,6 +121,7 @@
     home = "/home/karol";
     extraGroups = ["wheel" "networkmanager"];
     uid = 1001;
+    shell = "/run/current-system/sw/bin/zsh";
   };
 
   
