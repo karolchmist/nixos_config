@@ -71,7 +71,8 @@
       gitAndTools.gitFull
      
       pgadmin
-      
+      vagrant
+
       nodejs
       python # needed by gyp 
       gcc # needed by gyp 
