@@ -2,7 +2,6 @@
 
 {
 	hardware = {
-		#trackpoint.fakeButtons = true;
 		bluetooth.enable = true;
 	};
 
@@ -11,12 +10,8 @@
 
 		synaptics = {
 			enable = true;
-			#horizEdgeScroll = false;
-			#twoFingerScroll = true;
-			#tapButtons = false;
-			additionalOptions = ''
-				Option "TapButton2" "3"
-			'';
+			twoFingerScroll = true;
+			tapButtons = false;
 		};
 	};
 }
