@@ -2,3 +2,4 @@ hardware-configuration.nix
 result
 *.kate-swp
 *.save
+*.swp
