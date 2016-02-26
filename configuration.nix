@@ -43,7 +43,7 @@
   fonts.enableGhostscriptFonts = true;
   
   hardware = {
-	pulseaudio.enable = true;
+    pulseaudio.enable = true;
   };
   
   # Set your time zone
@@ -58,30 +58,12 @@
     p7zip
     traceroute
     
-      # Dev
-      disnixos
-      nix-repl
-      nixops
-      gnumake
-      
-      jdk
-      sbt
-      idea.idea-community
-      
-      gitAndTools.gitFull
-     
-      pgadmin
-      vagrant
-
-      nodejs
-      python # needed by gyp 
-      gcc # needed by gyp 
-      nodePackages.npm2nix
-      nodePackages.bower2nix
-      nodePackages.bower
-      nodePackages.gulp
-      nodePackages.karma
-#      nodePackages.protractor
+    # Dev
+    #disnixos
+    nix-repl
+    nixops
+    gnumake
+    gitAndTools.gitFull
   ];
 
 
@@ -128,7 +110,7 @@
   
   security.sudo.wheelNeedsPassword = false;
   
-  system.autoUpgrade.enable = true;
+  system.autoUpgrade.enable = false;
   
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";
