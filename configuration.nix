@@ -57,6 +57,8 @@
     vim
     p7zip
     traceroute
+    iftop
+    ghc
     
     # Dev
     #disnixos
@@ -86,8 +88,8 @@
 	  latitude = "45.76";
 	  longitude = "4.84";
 	  brightness = {
-		 day = "0.5";
-		 night = "0.4";
+		 day = "0.7";
+		 night = "0.5";
 	  };
 	};
 
