@@ -58,14 +58,16 @@
     p7zip
     traceroute
     iftop
-    ghc
-    
+    cron  
+    fuse_exfat
+      
     # Dev
     #disnixos
     nix-repl
     nixops
     gnumake
     gitAndTools.gitFull
+    cron
   ];
 
 
@@ -78,6 +80,11 @@
 
   # Enable the X11 windowing system.
   services = {
+        fcron = {
+		enable = true;
+		allow = ["karol"];
+	};
+
 	nixosManual.showManual = true;
 	
 	# samba.enable = true;
@@ -88,7 +95,7 @@
 	  latitude = "45.76";
 	  longitude = "4.84";
 	  brightness = {
-		 day = "0.7";
+		 day = "1";
 		 night = "0.5";
 	  };
 	};
@@ -104,7 +111,7 @@
   users.extraUsers.karol = {
     isNormalUser = true;
     home = "/home/karol";
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = ["wheel" "networkmanager" "docker"];
     uid = 1001;
     shell = "/run/current-system/sw/bin/zsh";
   };
@@ -121,4 +128,6 @@
   #services.virtualboxHost.enable = true;
   # 16.03
   virtualisation.virtualbox.host.enable = true;
+
+  virtualisation.docker.enable = true;
 }

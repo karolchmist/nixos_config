@@ -13,25 +13,25 @@
 		windowManager.default = "i3";
 		*/
 
-		
+	
 		### KDE
 		desktopManager.kde4.enable = true;
 		displayManager.kdm.enable = true;
 		
-
-		/*	
+/*			
 		### Gnome
 		desktopManager.gnome3.enable = true;
 		displayManager.gdm.enable = true;
-		*/
+*/		
 		
-		/*
+/*		
 		#### XMonad 
 		desktopManager = { 
 			xterm.enable = false;
 			default = "none";
 		};
-
+*/
+/*
 		windowManager = {
 			default = "xmonad";
 			xmonad = {
@@ -40,9 +40,8 @@
 				#extraPackages = self: [ self.xmonadContrib ];
 			};
 		};		
-		*/
+*/		
 	};
-
 	
 	environment.systemPackages = with pkgs; [
 		xmonad-with-packages
