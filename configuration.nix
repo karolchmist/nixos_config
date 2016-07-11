@@ -54,12 +54,15 @@
   environment.systemPackages = with pkgs; [
     wget
     htop 
+    iotop
     vim
     p7zip
+    zip
     traceroute
     iftop
     cron  
     fuse_exfat
+    terminator
       
     # Dev
     #disnixos
@@ -88,7 +91,10 @@
 	nixosManual.showManual = true;
 	
 	# samba.enable = true;
-	printing.enable = true;
+	printing = {
+		enable = true;
+		drivers = [ pkgs.epson-escpr ];
+	};
 
 	redshift = {
 	  enable = true;
@@ -104,7 +110,12 @@
     mysql = {
      enable = true;
      package = pkgs.mysql;
+     extraOptions = ''
+		sync_binlog = 0
+	'';
     };
+
+    mongodb.enable = true;
   };
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -124,9 +135,6 @@
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";
 
-  # 15.09
-  #services.virtualboxHost.enable = true;
-  # 16.03
   virtualisation.virtualbox.host.enable = true;
 
   virtualisation.docker.enable = true;
