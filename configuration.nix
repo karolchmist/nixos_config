@@ -14,7 +14,7 @@
     ];
 
   # Use the gummiboot efi boot loader.
-  boot.loader.gummiboot.enable = true;
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
@@ -114,8 +114,6 @@
 		sync_binlog = 0
 	'';
     };
-
-    mongodb.enable = true;
   };
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
