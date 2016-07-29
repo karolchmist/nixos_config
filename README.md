@@ -2,19 +2,23 @@
 
 Installing Nixos for UEFI
 
+## Prepare USB
+
+Install unetbootin, install iso to usb
+Install mtools, run 
+sudo mlabel -i /dev/sdb1 -s ::"NIXOS_ISO  "       
+
+
 ## Installation
 
-```
-# Partitions
-gdisk /dev/sda
-n, <enter>, <enter>, +100k,   EF02 => boot, /dev/sda1
-n, <enter>, <enter>, +200m,   EF00 => efi, /dev/sda2
-n, <enter>, <enter>, <enter>, 8300 => linux, /dev/sda3
-w
+systemctl start display-manager
 
-# Format
-mkfs.ext2 -L boot  /dev/sda2
-mkfs.ext4 -L nixos /dev/sda3
+Run gparted
+Create GPT partition table
+
+Create 100MiB of partition of fat32, put "boot" flag on it, label it "boot".
+
+Create the rest for linux, label it "nixos".
 
 fdisk -l 
 
