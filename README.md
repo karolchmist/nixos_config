@@ -1,15 +1,15 @@
 # Home Nixos Configuration
 
-UEFI, KDE4
+Installing Nixos for UEFI
 
 ## Installation
 
 ```
 # Partitions
 gdisk /dev/sda
-n, <enter>, +100k,   EF02 => boot, /dev/sda1
-n, <enter>, +200m,   EF00 => efi, /dev/sda2
-n, <enter>, <enter>, 8300 => linux, /dev/sda3
+n, <enter>, <enter>, +100k,   EF02 => boot, /dev/sda1
+n, <enter>, <enter>, +200m,   EF00 => efi, /dev/sda2
+n, <enter>, <enter>, <enter>, 8300 => linux, /dev/sda3
 w
 
 # Format
