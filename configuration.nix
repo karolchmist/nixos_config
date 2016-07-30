@@ -44,6 +44,10 @@
   
   hardware = {
     pulseaudio.enable = true;
+    
+    #steam
+    opengl.driSupport32Bit = true;
+    pulseaudio.support32Bit = true;
   };
   
   # Set your time zone
@@ -63,6 +67,8 @@
     cron  
     fuse_exfat
     terminator
+	
+    dmenu 
       
     # Dev
     #disnixos
@@ -107,13 +113,19 @@
 	};
 
 
-    mysql = {
-     enable = true;
-     package = pkgs.mysql;
-     extraOptions = ''
-		sync_binlog = 0
-	'';
-    };
+	mysql = {
+		enable = true;
+		package = pkgs.mysql;
+		extraOptions = ''
+			sync_binlog = 0
+		'';
+	};
+
+	xserver = {
+		xkbOptions = "compose:rctrl, eurosign:5";
+                enable = true;
+		layout = "pl";
+	};
   };
   
   # Define a user account. Don't forget to set a password with ‘passwd’.

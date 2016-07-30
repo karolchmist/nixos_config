@@ -2,14 +2,10 @@
 
 {
 	services.xserver = {
-		enable = true;
-		layout = "pl";
-		xkbOptions = "eurosign:5";
-
 		### Xfce
-		desktopManager.xfce.enable = true;
-		#windowManager.i3.enable = true;
-		#windowManager.default = "i3";
+		#desktopManager.xfce.enable = true;
+		windowManager.i3.enable = true;
+		windowManager.default = "i3";
 
 /*	
 		### KDE
