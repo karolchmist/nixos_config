@@ -10,7 +10,8 @@
       ./hardware-configuration.nix
       ./ssd-configuration.nix
       ./xserver-configuration.nix
-      ./lenovo-t440s-configuration.nix
+      ./lenovo-t460p-configuration.nix
+      ./wpa.nix
     ];
 
   # Use the gummiboot efi boot loader.
@@ -18,25 +19,24 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-	hostName = "karol"; # Define your hostname.
-  	# wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  	networkmanager.enable = true;
+	hostName = "karol2"; # Define your hostname.
+  	wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 	firewall = {
 		enable = true;
 		allowedTCPPorts = [
+			27015 # CS
 			137 138 139 # Samba/Netbios
+
 		];
 		allowedUDPPorts = [
+			27015 # CS
 			137 138 139 # Samba/Netbios
 		];	
 	};
   };
 
-  # Select internationalisation properties.
   i18n = {
-    # consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "pl";
-    # defaultLocale = "pl_PL.UTF-8";
     supportedLocales = ["en_US.UTF-8/UTF-8"];
   };
 
@@ -44,17 +44,13 @@
   
   hardware = {
     pulseaudio.enable = true;
-    
-    #steam
+    # steam
     opengl.driSupport32Bit = true;
     pulseaudio.support32Bit = true;
   };
   
-  # Set your time zone
   time.timeZone = "Europe/Paris";
 
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     wget
     htop 
@@ -67,8 +63,7 @@
     cron  
     fuse_exfat
     terminator
-	
-    dmenu 
+    dmenu
       
     # Dev
     #disnixos
@@ -79,16 +74,20 @@
     cron
   ];
 
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
   programs.zsh.enable = true;
 
-  # Enable the X11 windowing system.
   services = {
+	dictd = {
+		enable = true;
+		DBs = with pkgs; [ 
+			dictdDBs.eng2fra
+			dictdDBs.fra2eng
+			dictdWiktionary
+			dictdWordnet
+		 ];
+	};
         fcron = {
 		enable = true;
 		allow = ["karol"];
@@ -97,10 +96,10 @@
 	nixosManual.showManual = true;
 	
 	# samba.enable = true;
-	printing = {
-		enable = true;
-		drivers = [ pkgs.epson-escpr ];
-	};
+	# printing = {
+	#	enable = true;
+	#	drivers = [ pkgs.epson-escpr ];
+	# };
 
 	redshift = {
 	  enable = true;
@@ -112,19 +111,12 @@
 	  };
 	};
 
-
 	mysql = {
 		enable = true;
 		package = pkgs.mysql;
 		extraOptions = ''
 			sync_binlog = 0
 		'';
-	};
-
-	xserver = {
-		xkbOptions = "compose:rctrl, eurosign:5";
-                enable = true;
-		layout = "pl";
 	};
   };
   
@@ -137,15 +129,14 @@
     shell = "/run/current-system/sw/bin/zsh";
   };
 
-  
   security.sudo.wheelNeedsPassword = false;
   
-  system.autoUpgrade.enable = false;
+  system.autoUpgrade.enable = true;
   
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "15.09";
+  #system.stateVersion = "16.04";
 
-  virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.host.enable = true;
 
   virtualisation.docker.enable = true;
 }

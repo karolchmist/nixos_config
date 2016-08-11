@@ -2,6 +2,11 @@
 
 {
 	services.xserver = {
+		enable = true;
+		layout = "pl";
+		xkbOptions = "compose:caps, eurosign:5";
+		#xserverArgs = [ "-dpi 144" ];
+
 		### Xfce
 		#desktopManager.xfce.enable = true;
 		windowManager.i3.enable = true;
@@ -40,7 +45,8 @@
 	
 	environment.systemPackages = with pkgs; [
 		#gmrun
-		#dmenu
+		dmenu
+		i3status
 		#xorg.xmessage
 	];
 
