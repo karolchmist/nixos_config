@@ -63,7 +63,6 @@
     cron  
     fuse_exfat
     terminator
-    dmenu
       
     # Dev
     #disnixos
