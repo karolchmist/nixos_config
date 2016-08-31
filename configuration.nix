@@ -21,18 +21,16 @@
   networking = {
 	hostName = "karol2"; # Define your hostname.
   	wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-	firewall = {
-		enable = true;
-		allowedTCPPorts = [
-			27015 # CS
-			137 138 139 # Samba/Netbios
-
-		];
-		allowedUDPPorts = [
-			27015 # CS
-			137 138 139 # Samba/Netbios
-		];	
-	};
+	firewall = let ports = [
+				27015 # CS
+				6969 # calibre
+				137 138 139 # Samba/Netbios
+			];
+		in {
+			enable = true;
+			allowedTCPPorts = ports;
+			allowedUDPPorts = ports;
+		};
   };
 
   i18n = {
