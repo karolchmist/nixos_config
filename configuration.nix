@@ -61,7 +61,8 @@
     cron  
     fuse_exfat
     terminator
-      
+    tmux
+ 
     # Dev
     #disnixos
     nix-repl
@@ -93,13 +94,13 @@
 	nixosManual.showManual = true;
 	
 	# samba.enable = true;
-	# printing = {
-	#	enable = true;
-	#	drivers = [ pkgs.epson-escpr ];
-	# };
+	printing = {
+		enable = true;
+		drivers = [ pkgs.epson-escpr ];
+	};
 
 	redshift = {
-	  enable = true;
+	  enable = false;
 	  latitude = "45.76";
 	  longitude = "4.84";
 	  brightness = {
