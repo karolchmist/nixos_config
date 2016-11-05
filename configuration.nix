@@ -19,7 +19,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-	hostName = "karol2"; # Define your hostname.
+	hostName = "hermes"; # Define your hostname.
   	wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 	firewall = let ports = [
 				27015 # CS
@@ -62,6 +62,7 @@
     fuse_exfat
     terminator
     tmux
+    keepassx
  
     # Dev
     #disnixos
