@@ -21,21 +21,16 @@
   networking = {
 	hostName = "hermes"; # Define your hostname.
   	wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-	firewall = let ports = [
-				27015 # CS
-				6969 # calibre
-				137 138 139 # Samba/Netbios
-			];
-		in {
-			enable = true;
-			allowedTCPPorts = ports;
-			allowedUDPPorts = ports;
-		};
+	firewall = {
+		enable = true;
+		allowedTCPPorts = [22];
+		allowedUDPPorts = [];
+	};
   };
 
   i18n = {
-    consoleKeyMap = "pl";
-    supportedLocales = ["en_US.UTF-8/UTF-8"];
+  #  consoleKeyMap = "pl";
+  #  supportedLocales = ["en_US.UTF-8/UTF-8"];
   };
 
   fonts.enableGhostscriptFonts = true;
@@ -44,6 +39,7 @@
     pulseaudio.enable = true;
     # steam
     opengl.driSupport32Bit = true;
+    opengl.driSupport = true;
     pulseaudio.support32Bit = true;
   };
   
@@ -61,8 +57,8 @@
     cron  
     fuse_exfat
     terminator
-    tmux
     keepassx
+    pmount
  
     # Dev
     #disnixos
@@ -70,26 +66,23 @@
     nixops
     gnumake
     gitAndTools.gitFull
-    cron
   ];
 
-  # services.openssh.enable = true;
 
   programs.zsh.enable = true;
 
   services = {
+#	udisks2.enable = true;
+
+  	openssh.enable = true;
 	dictd = {
 		enable = true;
 		DBs = with pkgs; [ 
 			dictdDBs.eng2fra
 			dictdDBs.fra2eng
-			dictdWiktionary
-			dictdWordnet
+			#dictdWiktionary
+			#dictdWordnet
 		 ];
-	};
-        fcron = {
-		enable = true;
-		allow = ["karol"];
 	};
 
 	nixosManual.showManual = true;
@@ -101,7 +94,7 @@
 	};
 
 	redshift = {
-	  enable = false;
+	  enable = true;
 	  latitude = "45.76";
 	  longitude = "4.84";
 	  brightness = {
@@ -127,6 +120,14 @@
     uid = 1001;
     shell = "/run/current-system/sw/bin/zsh";
   };
+  users.extraUsers.guest = {
+    isNormalUser = true;
+    home = "/home/guest";
+    extraGroups = [];
+    uid = 1002;
+    shell = "/run/current-system/sw/bin/zsh";
+  };
+
 
   security.sudo.wheelNeedsPassword = false;
   
@@ -135,7 +136,10 @@
   # The NixOS release to be compatible with for stateful data such as databases.
   #system.stateVersion = "16.04";
 
-  #virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 
   virtualisation.docker.enable = true;
+
+  # https://github.com/NixOS/nixpkgs/issues/22470 vconsole bug
+  boot.earlyVconsoleSetup = true;
 }
