@@ -7,14 +7,25 @@
 		xkbOptions = "compose:caps, eurosign:5";
 		#xserverArgs = [ "-dpi 144" ];
 
+		displayManager.sddm.enable = true;
+
+		desktopManager.xfce = {
+			enable = true;
+			noDesktop = true;
+			enableXfwm = false;
+		};
+		desktopManager.default = "xfce";
+		
 		### i3
 		windowManager.i3.enable = true;
-		windowManager.default = "i3";
+		# windowManager.default = "i3";
 	};
 	
 	environment.systemPackages = with pkgs; [
 		dmenu
+		i3
 		i3status
+		i3blocks
 	];
 
 }
