@@ -23,7 +23,7 @@
   	wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 	firewall = {
 		enable = true;
-		allowedTCPPorts = [22];
+		allowedTCPPorts = [];
 		allowedUDPPorts = [];
 	};
   };
@@ -54,7 +54,6 @@
     zip
     traceroute
     iftop
-    cron  
     fuse_exfat
     terminator
     keepassx
@@ -63,7 +62,7 @@
     # Dev
     #disnixos
     nix-repl
-    nixops
+    # nixops
     gnumake
     gitAndTools.gitFull
   ];
@@ -94,12 +93,12 @@
 	};
 
 	redshift = {
-	  enable = true;
+	  enable = false;
 	  latitude = "45.76";
 	  longitude = "4.84";
 	  brightness = {
 		 day = "1";
-		 night = "0.5";
+		 night = "1.0";
 	  };
 	};
 
@@ -139,7 +138,4 @@
   virtualisation.virtualbox.host.enable = true;
 
   virtualisation.docker.enable = true;
-
-  # https://github.com/NixOS/nixpkgs/issues/22470 vconsole bug
-  boot.earlyVconsoleSetup = true;
 }
