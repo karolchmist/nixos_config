@@ -18,7 +18,7 @@
 		
 		### i3
 		windowManager.i3.enable = true;
-		# windowManager.default = "i3";
+		windowManager.default = "i3";
 	};
 	
 	environment.systemPackages = with pkgs; [
