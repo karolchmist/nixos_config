@@ -115,7 +115,7 @@
   users.extraUsers.karol = {
     isNormalUser = true;
     home = "/home/karol";
-    extraGroups = ["wheel" "networkmanager" "docker"];
+    extraGroups = ["wheel" "networkmanager" "docker" "plugdev"];
     uid = 1001;
     shell = "/run/current-system/sw/bin/zsh";
   };
