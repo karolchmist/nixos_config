@@ -18,6 +18,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # See https://github.com/anderspapitto/nixos-configuration
+  nix.nixPath = [
+		"/etc/nixos"
+		"nixos-config=/etc/nixos/configuration/configuration.nix"
+	];
+
   networking = {
 	hostName = "hermes"; # Define your hostname.
   	wireless.enable = true;  # Enables wireless support via wpa_supplicant.
