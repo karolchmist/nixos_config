@@ -71,6 +71,8 @@
     # nixops
     gnumake
     gitAndTools.gitFull
+
+    hplip
   ];
 
 
@@ -95,7 +97,7 @@
 	# samba.enable = true;
 	printing = {
 		enable = true;
-		drivers = [ pkgs.epson-escpr ];
+		drivers = [ pkgs.hplipWithPlugin ];
 	};
 
 	redshift = {
