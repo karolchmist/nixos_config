@@ -7,7 +7,7 @@
 		xkbOptions = "compose:caps, eurosign:5";
 		#xserverArgs = [ "-dpi 144" ];
 
-		displayManager.sddm.enable = true;
+		displayManager.lightdm.enable = true;
 
 		desktopManager.xfce = {
 			enable = true;
