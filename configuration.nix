@@ -107,14 +107,6 @@
 		 night = "0.8";
 	  };
 	};
-
-	mysql = {
-		enable = true;
-		package = pkgs.mysql;
-		extraOptions = ''
-			sync_binlog = 0
-		'';
-	};
   };
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
