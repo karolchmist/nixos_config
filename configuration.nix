@@ -90,6 +90,8 @@
 		 ];
 	};
 
+	gnome3.gnome-keyring.enable = true;
+
 	nixosManual.showManual = true;
 	
 	# samba.enable = true;
