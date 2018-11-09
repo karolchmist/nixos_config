@@ -99,12 +99,12 @@
 	};
 
 	redshift = {
-	  enable = false;
+	  enable = true;
 	  latitude = "45.76";
 	  longitude = "4.84";
 	  brightness = {
 		 day = "1";
-		 night = "1.0";
+		 night = "0.8";
 	  };
 	};
 
