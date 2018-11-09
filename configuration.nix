@@ -80,8 +80,6 @@
 
   services = {
 #	udisks2.enable = true;
-
-  	openssh.enable = true;
 	dictd = {
 		enable = true;
 		DBs = with pkgs; [ 
