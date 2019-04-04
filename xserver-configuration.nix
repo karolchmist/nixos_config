@@ -26,6 +26,8 @@
 		i3
 		i3status
 		i3blocks
+		nitrogen # wallpaper setter
+		slock # X display locker
 	];
 
 }
