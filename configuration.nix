@@ -76,13 +76,6 @@
     keepassx
     pmount
  
-    # Dev
-    #disnixos
-    nix-repl
-    # nixops
-    gnumake
-    gitAndTools.gitFull
-
     hplip
   ];
 
