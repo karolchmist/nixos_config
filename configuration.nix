@@ -47,7 +47,7 @@
    };
 
   fonts.enableGhostscriptFonts = true;
-  
+
   hardware = {
     pulseaudio.enable = true;
     # steam
@@ -57,14 +57,14 @@
 
     sane.enable = true; # scanning
   };
-  
+
   time.timeZone = "Europe/Paris";
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     wget
-    htop 
+    htop
     iotop
     vim
     p7zip
@@ -75,7 +75,7 @@
     sakura # default terminal
     keepassx
     pmount
- 
+
     hplip
   ];
 
@@ -83,22 +83,18 @@
   programs.zsh.enable = true;
 
   services = {
-#	udisks2.enable = true;
 	dictd = {
 		enable = true;
-		DBs = with pkgs; [ 
+		DBs = with pkgs; [
 			dictdDBs.eng2fra
 			dictdDBs.fra2eng
-			#dictdWiktionary
-			#dictdWordnet
 		 ];
 	};
 
 	gnome3.gnome-keyring.enable = true;
 
 	nixosManual.showManual = true;
-	
-	# samba.enable = true;
+
 	printing = {
 		enable = true;
 		drivers = [ pkgs.hplipWithPlugin ];
@@ -142,9 +138,6 @@
 
 
   security.sudo.wheelNeedsPassword = false;
-
-  # The NixOS release to be compatible with for stateful data such as databases.
-  #system.stateVersion = "16.04";
 
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = false;
