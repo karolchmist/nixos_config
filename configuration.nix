@@ -148,8 +148,6 @@
   # The NixOS release to be compatible with for stateful data such as databases.
   #system.stateVersion = "16.04";
 
-  virtualisation.virtualbox.host.enable = true;
-
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = false;
 }
