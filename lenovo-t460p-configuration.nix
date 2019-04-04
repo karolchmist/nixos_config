@@ -8,10 +8,8 @@
 	services.xserver = {
 		xkbModel = "pc105";
 
-		synaptics = {
+		libinput = {
 			enable = true;
-			twoFingerScroll = true;
-			tapButtons = false;
 		};
 	};
 }
