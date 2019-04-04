@@ -37,10 +37,10 @@
 	};
   };
 
-  i18n = {
-  #  consoleKeyMap = "pl";
-  #  supportedLocales = ["en_US.UTF-8/UTF-8"];
-  };
+   i18n = {
+    consoleKeyMap = "pl";
+    defaultLocale = "pl_PL.UTF-8";
+   };
 
   fonts.enableGhostscriptFonts = true;
   

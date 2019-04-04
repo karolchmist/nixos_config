@@ -3,7 +3,6 @@
 {
 	services.xserver = {
 		enable = true;
-		layout = "pl";
 		xkbOptions = "compose:caps, eurosign:5";
 		#xserverArgs = [ "-dpi 144" ];
 
