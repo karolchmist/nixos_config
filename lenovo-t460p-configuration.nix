@@ -2,7 +2,7 @@
 
 {
 	hardware = {
-		bluetooth.enable = true;
+		bluetooth.enable = false;
 	};
 
 	services.xserver = {
