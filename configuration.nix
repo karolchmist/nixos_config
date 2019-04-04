@@ -142,9 +142,7 @@
 
 
   security.sudo.wheelNeedsPassword = false;
-  
-  system.autoUpgrade.enable = true;
-  
+
   # The NixOS release to be compatible with for stateful data such as databases.
   #system.stateVersion = "16.04";
 
