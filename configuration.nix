@@ -47,6 +47,8 @@
     opengl.driSupport32Bit = true;
     opengl.driSupport = true;
     pulseaudio.support32Bit = true;
+
+    sane.enable = true; # scanning
   };
   
   time.timeZone = "Europe/Paris";
@@ -99,6 +101,7 @@
 		enable = true;
 		drivers = [ pkgs.hplipWithPlugin ];
 	};
+	saned.enable = true;
 
 	redshift = {
 	  enable = true;
@@ -123,7 +126,7 @@
   users.extraUsers.karol = {
     isNormalUser = true;
     home = "/home/karol";
-    extraGroups = ["wheel" "networkmanager" "docker" "plugdev"];
+    extraGroups = ["wheel" "networkmanager" "docker" "plugdev" "scanner"];
     uid = 1001;
     shell = "/run/current-system/sw/bin/zsh";
   };
