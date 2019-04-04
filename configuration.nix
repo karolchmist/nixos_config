@@ -70,7 +70,7 @@
     traceroute
     iftop
     fuse_exfat
-    terminator
+    sakura # default terminal
     keepassx
     pmount
  
