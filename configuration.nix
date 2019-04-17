@@ -75,6 +75,7 @@
         sakura # default terminal
         keepassx
         pmount
+	    killall
 
         hplip
     ];
