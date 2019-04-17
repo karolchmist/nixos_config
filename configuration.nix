@@ -26,8 +26,8 @@
 
     networking = {
         extraHosts = "
-            127.0.0.1   localhost spark-master hive-metastore hive-server namenode kafka datanode
-            ::1         localhost spark-master hive-metastore hive-server namenode kafka datanode
+            127.0.0.1   localhost spark-master hive-metastore hive-server namenode kafka datanode registry
+            ::1         localhost spark-master hive-metastore hive-server namenode kafka datanode registry
         ";
         hostName = "hermes"; # Define your hostname.
         wireless = {
