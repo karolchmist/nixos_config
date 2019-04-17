@@ -46,7 +46,23 @@
         defaultLocale = "pl_PL.UTF-8";
    };
 
-    fonts.enableGhostscriptFonts = true;
+    fonts = {
+	  enableGhostscriptFonts = true;
+	  fonts = with pkgs; [
+	    noto-fonts
+	    noto-fonts-cjk
+	    noto-fonts-emoji
+	    liberation_ttf
+	    fira-code
+	    fira-code-symbols
+	    mplus-outline-fonts
+	    dina-font
+	    proggyfonts
+	    siji
+	    unifont
+	    roboto
+	  ];
+    };
 
     hardware = {
         pulseaudio.enable = true;
