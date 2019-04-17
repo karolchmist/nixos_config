@@ -16,17 +16,23 @@
 		desktopManager.default = "xfce";
 		
 		### i3
-		windowManager.i3.enable = true;
+		windowManager.i3 = {
+			enable = true;
+			extraPackages = with pkgs; [
+				dmenu
+				i3lock
+			];
+		};
 		windowManager.default = "i3";
 	};
 	
 	environment.systemPackages = with pkgs; [
-		dmenu
-		i3
-		i3status
-		i3blocks
 		nitrogen # wallpaper setter
 		slock # X display locker
+		(polybar.override {
+			i3Support = true;	
+			mpdSupport = true;
+		})
 	];
 
 }
