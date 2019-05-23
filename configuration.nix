@@ -9,7 +9,8 @@
     [ # Include the results of the hardware scan.
         ./hardware-configuration.nix
         ./ssd-configuration.nix
-        ./xserver-configuration.nix
+        # ./xfce4-i3.nix
+        ./gnome3-i3.nix
         ./lenovo-t460p-configuration.nix
         ./wpa.nix
     ];
@@ -63,6 +64,8 @@
 	    roboto
 	  ];
     };
+
+    sound.mediaKeys.enable = true;
 
     hardware = {
         pulseaudio.enable = true;
@@ -142,7 +145,7 @@
     users.extraUsers.karol = {
         isNormalUser = true;
         home = "/home/karol";
-        extraGroups = ["wheel" "networkmanager" "docker" "plugdev" "scanner"];
+        extraGroups = ["wheel" "networkmanager" "docker" "plugdev" "scanner" "video"];
         uid = 1001;
         shell = "/run/current-system/sw/bin/zsh";
     };
