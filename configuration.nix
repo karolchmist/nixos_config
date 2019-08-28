@@ -102,6 +102,11 @@
 
     programs.zsh.enable = true;
 
+    location = {
+        latitude = 45.76;
+        longitude = 4.84;
+    };
+
     services = {
         dictd = {
             enable = true;
@@ -124,8 +129,6 @@
 
         redshift = {
             enable = true;
-            latitude = "45.76";
-            longitude = "4.84";
             brightness = {
                 day = "1";
                 night = "0.8";
