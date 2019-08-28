@@ -5,13 +5,7 @@
         bluetooth.enable = false;
     };
 
-    services.xserver = {
-        xkbModel = "pc105";
-
-        libinput = {
-            enable = true;
-        };
-        
+    services = {
         tlp = {
             enable = true;
             extraConfig = ''
@@ -22,6 +16,13 @@
                  DEVICES_TO_DISABLE_ON_LAN_CONNECT="wifi wwan"
             '';
         };
+        
+        xserver = {
+            xkbModel = "pc105";
+    
+            libinput = {
+                enable = true;
+            };
+        };
     };
-
 }
