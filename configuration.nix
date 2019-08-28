@@ -27,8 +27,8 @@
 
     networking = {
         extraHosts = "
-            127.0.0.1   localhost spark-master hive-metastore hive-server namenode kafka datanode registry
-            ::1         localhost spark-master hive-metastore hive-server namenode kafka datanode registry
+            127.0.0.1   localhost spark-master hive-metastore hive-server namenode kafka datanode registry registry-postgresql hdfs-filebrowser
+            ::1         localhost spark-master hive-metastore hive-server namenode kafka datanode registry registry-postgresql hdfs-filebrowser
         ";
         hostName = "hermes"; # Define your hostname.
         wireless = {
@@ -48,21 +48,21 @@
    };
 
     fonts = {
-	  enableGhostscriptFonts = true;
-	  fonts = with pkgs; [
-	    noto-fonts
-	    noto-fonts-cjk
-	    noto-fonts-emoji
-	    liberation_ttf
-	    fira-code
-	    fira-code-symbols
-	    mplus-outline-fonts
-	    dina-font
-	    proggyfonts
-	    siji
-	    unifont
-	    roboto
-	  ];
+      enableGhostscriptFonts = true;
+      fonts = with pkgs; [
+        noto-fonts
+        noto-fonts-cjk
+        noto-fonts-emoji
+        liberation_ttf
+        fira-code
+        fira-code-symbols
+        mplus-outline-fonts
+        dina-font
+        proggyfonts
+        siji
+        unifont
+        roboto
+      ];
     };
 
     sound.mediaKeys.enable = true;
@@ -94,7 +94,7 @@
         sakura # default terminal
         keepassx
         pmount
-	    killall
+        killall
 
         hplip
     ];
