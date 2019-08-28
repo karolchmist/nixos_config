@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  networking.networkmanager.enable = false;
   services.xserver = {
     enable = true;
     xkbOptions = "compose:caps, eurosign:5";
