@@ -9,8 +9,8 @@
     [ # Include the results of the hardware scan.
         ./hardware-configuration.nix
         ./ssd-configuration.nix
-        # ./xfce4-i3.nix
-        ./gnome3-i3.nix
+        ./xfce4-i3.nix
+        # ./gnome3-i3.nix
         ./lenovo-t460p-configuration.nix
         ./wpa.nix
     ];
