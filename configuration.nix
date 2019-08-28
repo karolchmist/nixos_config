@@ -139,6 +139,14 @@
             SUBSYSTEM=="usb", ATTR{idVendor}=="045e", MODE="0666", GROUP="plugdev"
             SUBSYSTEM=="usb", ATTR{idVendor}=="2ae5", MODE="0666", GROUP="plugdev"
         '';
+ 
+        boinc = {
+            enable = true;
+            allowRemoteGuiRpc = true;
+            extraEnvPackages = [
+                pkgs.virtualbox
+            ];
+        };
     };
   
     # Define a user account. Don't forget to set a password with ‘passwd’.
