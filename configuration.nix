@@ -119,6 +119,12 @@
             ];
         };
 
+        earlyoom = {
+            enable = true;
+            enableDebugInfo = true;
+        };
+        
+        
         gnome3.gnome-keyring.enable = true;
 
         nixosManual.showManual = true;
