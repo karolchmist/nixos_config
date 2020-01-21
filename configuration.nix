@@ -22,6 +22,12 @@
     boot.cleanTmpDir = true;
     boot.tmpOnTmpfs = true;
 
+    # Intellij IDEA
+    boot.kernel.sysctl = {
+        "fs.inotify.max_user_watches" = 524288;
+    };
+
+
     # See https://github.com/anderspapitto/nixos-configuration
     nix.nixPath = [
         "/etc/nixos"
