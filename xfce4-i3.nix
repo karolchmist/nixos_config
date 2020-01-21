@@ -7,13 +7,13 @@
     #xserverArgs = [ "-dpi 144" ];
 
     displayManager.lightdm.enable = true;
+    displayManager.defaultSession = "xfce+i3";
 
     desktopManager.xfce = {
       enable = true;
       noDesktop = true;
       enableXfwm = false;
     };
-    desktopManager.default = "xfce";
     
     ### i3
     windowManager.i3 = {
@@ -23,7 +23,6 @@
         i3lock
       ];
     };
-    windowManager.default = "i3";
   };
   
   environment.systemPackages = with pkgs; [
