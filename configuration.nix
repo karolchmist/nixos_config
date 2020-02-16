@@ -103,7 +103,7 @@
         traceroute
         iftop
         fuse_exfat
-        sakura # default terminal
+        alacritty
         keepassx
         pmount
         killall
