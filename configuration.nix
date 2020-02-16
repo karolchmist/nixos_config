@@ -33,7 +33,9 @@
     nix.nixPath = [
         "/etc/nixos"
         "nixos-config=/etc/nixos/configuration/configuration.nix"
-    ];
+    ];    
+    
+    boot.kernelPackages = pkgs.linuxPackages_latest;
 
     networking = {
         extraHosts = "
