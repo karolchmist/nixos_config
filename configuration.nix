@@ -111,8 +111,10 @@
         hplip
     ];
 
-
-    programs.zsh.enable = true;
+    programs = {
+        adb.enable = true;
+        zsh.enable = true;
+    };
 
     location = {
         latitude = 45.76;
@@ -174,7 +176,7 @@
     users.extraUsers.karol = {
         isNormalUser = true;
         home = "/home/karol";
-        extraGroups = ["wheel" "networkmanager" "docker" "plugdev" "scanner" "video" "sway"];
+        extraGroups = ["wheel" "networkmanager" "docker" "plugdev" "scanner" "video" "sway" "adb"];
         uid = 1001;
         shell = "/run/current-system/sw/bin/zsh";
     };
