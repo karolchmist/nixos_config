@@ -113,6 +113,7 @@
 
     programs = {
         adb.enable = true;
+        fuse.userAllowOther = true;
         zsh.enable = true;
     };
 
