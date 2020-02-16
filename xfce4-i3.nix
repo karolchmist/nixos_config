@@ -4,10 +4,8 @@
   services.xserver = {
     enable = true;
     xkbOptions = "compose:caps, eurosign:5";
-    #xserverArgs = [ "-dpi 144" ];
 
     displayManager.lightdm.enable = true;
-    displayManager.defaultSession = "xfce+i3";
 
     desktopManager.xfce = {
       enable = true;
@@ -19,19 +17,10 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
-        dmenu
+        j4-dmenu-desktop
         i3lock
+        i3status-rust
       ];
     };
   };
-  
-  environment.systemPackages = with pkgs; [
-    nitrogen # wallpaper setter
-    slock # X display locker
-    (polybar.override {
-      i3Support = true;  
-      mpdSupport = true;
-    })
-  ];
-
 }
