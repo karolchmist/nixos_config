@@ -74,6 +74,8 @@
         siji
         unifont
         roboto
+        dejavu_fonts
+        font-awesome # waybar
       ];
     };
 
@@ -153,6 +155,10 @@
             brightness = {
                 day = "1";
                 night = "0.8";
+            };
+            temperature = {
+                day = 4000;
+                night = 3500;
             };
         };
 
