@@ -5,7 +5,7 @@
         bluetooth.enable = false;
     };
 
-    boot.kernelParams = [ "video=SVIDEO-1:d" ];
+    boot.kernelParams = [ "video=SVIDEO-1:d mitigations=off" ];
 
     services = {
         tlp = {
