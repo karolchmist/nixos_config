@@ -125,6 +125,11 @@
     programs = {
         adb.enable = true;
         fuse.userAllowOther = true;
+        java = {
+            enable = true;
+            package = pkgs.jdk;
+            # package = pkgs.graalvm8;
+        };
         zsh.enable = true;
     };
 
