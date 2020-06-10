@@ -132,12 +132,6 @@
         };
         zsh.enable = true;
     };
-
-    location = {
-        latitude = 45.76;
-        longitude = 4.84;
-    };
-
     services = {
         dictd = {
             enable = true;
