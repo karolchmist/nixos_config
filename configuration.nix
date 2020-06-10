@@ -40,8 +40,8 @@
 
     networking = {
         extraHosts = "
-            127.0.0.1   localhost spark-master hive-metastore hive-server namenode kafka datanode registry registry-postgresql hdfs-filebrowser keycloak
-            ::1         localhost spark-master hive-metastore hive-server namenode kafka datanode registry registry-postgresql hdfs-filebrowser keycloak
+            127.0.0.1   localhost spark-master hive-metastore hive-server namenode kafka datanode registry registry-postgresql hdfs-filebrowser keycloak ldap jupyterhub yarn-resourcemanager
+            ::1         localhost spark-master hive-metastore hive-server namenode kafka datanode registry registry-postgresql hdfs-filebrowser keycloak ldap jupyterhub yarn-resourcemanager
         ";
         hostName = "hermes"; # Define your hostname.
         wireless = {
