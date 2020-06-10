@@ -34,6 +34,7 @@
         "/etc/nixos"
         "nixos-config=/etc/nixos/configuration/configuration.nix"
     ];    
+    nix.useSandbox = true;
     
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
