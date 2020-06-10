@@ -88,6 +88,7 @@
         opengl.driSupport32Bit = true;
         opengl.driSupport = true;
         pulseaudio.support32Bit = true;
+        steam-hardware.enable = true; 
 
         sane.enable = true; # scanning
     };
