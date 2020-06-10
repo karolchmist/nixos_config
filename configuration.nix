@@ -91,6 +91,7 @@
         steam-hardware.enable = true; 
 
         sane.enable = true; # scanning
+        sane.extraBackends = [ pkgs.hplipWithPlugin ];
     };
 
     time.timeZone = "Europe/Paris";
@@ -113,6 +114,7 @@
         killall
 
         hplip
+        simple-scan sane-frontends sane-backends
     ];
 
     programs = {
