@@ -117,6 +117,11 @@
         simple-scan sane-frontends sane-backends
     ];
 
+    location = {
+        latitude = 45.76;
+        longitude = 4.84;
+    };
+
     programs = {
         adb.enable = true;
         fuse.userAllowOther = true;
