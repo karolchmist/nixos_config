@@ -49,7 +49,7 @@
             userControlled.enable = true;
         };
         firewall = {
-            enable = true;
+            enable = false; # enabling it breaks spark docker tests
             allowedTCPPorts = [];
             allowedUDPPorts = [];
         };
