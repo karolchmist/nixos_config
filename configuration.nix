@@ -205,6 +205,9 @@
 
     security.sudo.wheelNeedsPassword = false;
 
-    virtualisation.docker.enable = true;
-    virtualisation.docker.enableOnBoot = false;
+    virtualisation.docker = {
+        enable = true;
+        enableOnBoot = false;
+        extraOptions = ''--experimental'';
+    };
 }
