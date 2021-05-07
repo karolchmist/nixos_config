@@ -10,6 +10,7 @@
         ./hardware-configuration.nix
         ./ssd-configuration.nix
          ./xfce4-i3.nix
+       #  ./intel.nix
        #  ./gnome3.nix
        #  ./wayland.nix
         # ./gnome3-i3.nix
@@ -22,7 +23,6 @@
     boot.loader.efi.canTouchEfiVariables = true;
 
     boot.cleanTmpDir = true;
-    boot.tmpOnTmpfs = true;
 
     # Intellij IDEA
     boot.kernel.sysctl = {
@@ -56,44 +56,44 @@
         };
     };
 
-    i18n = {
-        consoleKeyMap = "pl";
-        defaultLocale = "pl_PL.UTF-8";
-   };
+    #i18n = {
+    #    consoleKeyMap = "pl";
+    #    defaultLocale = "pl_PL.UTF-8";
+  # };
 
     fonts = {
-      enableGhostscriptFonts = true;
-      fonts = with pkgs; [
-        noto-fonts
-        noto-fonts-cjk
-        noto-fonts-emoji
-        liberation_ttf
-        fira-code
-        fira-code-symbols
-        mplus-outline-fonts
-        dina-font
-        proggyfonts
-        siji
-        unifont
-        roboto
+    #  enableGhostscriptFonts = true;
+      # enableDefaultFonts = true;
+     fonts = with pkgs; [
+    #    noto-fonts
+    #    noto-fonts-cjk
+    #    noto-fonts-emoji
+    #    liberation_ttf
+    #    fira-code
+    #    fira-code-symbols
+    #    mplus-outline-fonts
+    #    dina-font
+    #    proggyfonts
+    #    siji
+    #    unifont
+    #    roboto
+        powerline-fonts
+        font-awesome
         dejavu_fonts
-        font-awesome # waybar
       ];
     };
 
-    sound.mediaKeys.enable = true;
+    # Doesn't work with wayland/sway/pulseaudio
+    # sound.mediaKeys.enable = true;
 
     hardware = {
         pulseaudio.enable = true;
-        # steam
-        opengl.driSupport32Bit = true;
-        opengl.driSupport = true;
         pulseaudio.support32Bit = true;
-        steam-hardware.enable = true; 
 
         sane.enable = true; # scanning
         sane.extraBackends = [ pkgs.hplipWithPlugin ];
     };
+
 
     time.timeZone = "Europe/Paris";
 
@@ -103,17 +103,18 @@
         wget
         htop
         iotop
+        iftop
         vim
-        p7zip
         zip
         traceroute
-        iftop
         fuse_exfat
         alacritty
-        keepassx
+        termite
         pmount
         killall
-
+        
+        lightlocker
+        
         hplip
         simple-scan sane-frontends sane-backends
     ];
@@ -124,18 +125,25 @@
     };
 
     programs = {
-        adb.enable = true;
+        # adb.enable = true;
+        light.enable = true;
         fuse.userAllowOther = true;
         java = {
             enable = true;
-            package = pkgs.jdk;
+            package = pkgs.jdk8_headless;
             # package = pkgs.graalvm8;
         };
+        steam.enable = true;
         zsh.enable = true;
     };
     services = {
+        bloop = {
+           # install = true;
+            extraOptions = [];
+        };
+        
         dictd = {
-            enable = true;
+            enable = false;
             DBs = with pkgs; [
                 dictdDBs.eng2fra
                 dictdDBs.fra2eng
@@ -145,16 +153,14 @@
         earlyoom = {
             enable = true;
             enableDebugInfo = true;
+            freeMemThreshold = 3;
         };
         
-        
         gnome3.gnome-keyring.enable = true;
-
-        nixosManual.showManual = true;
-
+        gnome3.evolution-data-server.enable = true;
         printing = {
-            enable = true;
-            drivers = [ pkgs.hplipWithPlugin ];
+           enable = true;
+           drivers = [ pkgs.hplipWithPlugin ];
         };
 
         saned.enable = true;
@@ -169,10 +175,14 @@
                 day = 4000;
                 night = 3500;
             };
+            extraOptions = [
+                "-r" # disable fading
+            ];
         };
 
         udev.extraRules = ''
-            SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
+            # LG
+            SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev" 
             SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="0666", GROUP="plugdev"
             SUBSYSTEM=="usb", ATTR{idVendor}=="0fce", MODE="0666", GROUP="plugdev"
             SUBSYSTEM=="usb", ATTR{idVendor}=="045e", MODE="0666", GROUP="plugdev"
@@ -180,7 +190,7 @@
         '';
  
         boinc = {
-            enable = true;
+            enable = false;
             allowRemoteGuiRpc = true;
             extraEnvPackages = [
                 pkgs.virtualbox
@@ -192,7 +202,7 @@
     users.extraUsers.karol = {
         isNormalUser = true;
         home = "/home/karol";
-        extraGroups = ["wheel" "networkmanager" "docker" "plugdev" "scanner" "video" "sway" "adb"];
+        extraGroups = ["wheel" "networkmanager" "docker" "plugdev" "scanner" "video" "sway" "adb" "adbusers"];
         uid = 1001;
         shell = "/run/current-system/sw/bin/zsh";
     };
@@ -203,12 +213,14 @@
         uid = 1002;
         shell = "/run/current-system/sw/bin/zsh";
     };
-
+    users.extraGroups.vboxusers.members = [ "karol" ];
     security.sudo.wheelNeedsPassword = false;
+
+    # virtualisation.virtualbox.host.enable = true;
 
     virtualisation.docker = {
         enable = true;
         enableOnBoot = false;
-        extraOptions = ''--experimental'';
+        # extraOptions = ''--experimental'';
     };
 }
