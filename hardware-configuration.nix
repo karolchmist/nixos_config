@@ -11,7 +11,6 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-  boot.blacklistedKernelModules = ["mei_wdt"];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/64ffcd82-35a6-4f63-a734-79831d9a5379";
