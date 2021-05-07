@@ -8,7 +8,7 @@
                 swaylock 
                 swayidle 
                 xwayland 
-	 	wl-clipboard
+                wl-clipboard
                 rxvt_unicode 
                 j4-dmenu-desktop # launches bemenu
                 bemenu # dmenu in wayland 
