@@ -5,7 +5,8 @@
     enable = true;
     xkbOptions = "compose:caps, eurosign:5";
 
-    displayManager.lightdm.enable = true;
+    # displayManager.lightdm.enable = true;
+    displayManager.sddm.enable = true;
 
     desktopManager.xfce = {
       enable = true;
@@ -20,6 +21,7 @@
         j4-dmenu-desktop
         i3lock
         i3status-rust
+        feh
       ];
     };
   };
