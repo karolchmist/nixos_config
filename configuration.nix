@@ -10,6 +10,7 @@
         ./hardware-configuration.nix
         ./ssd-configuration.nix
          ./xfce4-i3.nix
+       #  ./gnome3.nix
        #  ./wayland.nix
         # ./gnome3-i3.nix
         ./lenovo-t460p-configuration.nix
