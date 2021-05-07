@@ -6,6 +6,12 @@
     };
 
     boot.kernelParams = [ "video=SVIDEO-1:d mitigations=off" ];
+    boot.blacklistedKernelModules = ["mei_wdt"];
+
+    # https://nixos.wiki/wiki/Accelerated_Video_Playback
+    nixpkgs.config.packageOverrides = pkgs: {
+      vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    };
 
     services = {
         tlp = {
@@ -27,4 +33,8 @@
             };
         };
     };
+  boot = {
+    kernelModules = [ "acpi_call" ];
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+  };
 }
